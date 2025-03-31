@@ -1,0 +1,32 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-casino-red: #e31b23;
+  --color-casino-gold: #ffd700;
+  --color-casino-black: #1a1a1a;
+  --color-casino-purple: #4a154b;
+  --color-casino-green: #00843d;
+}
+
+body {
+  background-color: var(--color-casino-black);
+  color: #ffffff;
+}
+
+.casino-gradient {
+  background: linear-gradient(
+    135deg,
+    var(--color-casino-black) 0%,
+    var(--color-casino-purple) 100%
+  );
+}
+
+.gold-gradient {
+  background: linear-gradient(
+    45deg,
+    var(--color-casino-gold) 0%,
+    #ffa500 100%
+  );
+}
