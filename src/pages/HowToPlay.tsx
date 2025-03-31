@@ -70,8 +70,7 @@ const HowToPlay = () => {
                     <ul className="list-disc list-inside space-y-3 text-gray-300">
                       <li>Match all numbers: <span className="text-casino-gold">Win 100x</span></li>
                       <li>Match 4 numbers: <span className="text-casino-gold">Win 50x</span></li>
-                      <li>Match 3 numbers: <span className="text-casino-gold">Win 10x</span></li>
-                      <li>Match 2 numbers: <span className="text-casino-gold">Win 2x</span></li>
+                      <li>Match 3 numbers: <span className="text-casino-gold">Win 2x</span></li>
                     </ul>
                   </div>
                 </div>
