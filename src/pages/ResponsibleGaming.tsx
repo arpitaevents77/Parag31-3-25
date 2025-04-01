@@ -9,7 +9,7 @@ const ResponsibleGaming = () => {
           <div className="text-center mb-12">
             <h1 className="text-4xl font-bold text-casino-gold mb-4">Responsible Gaming</h1>
             <p className="text-gray-300">
-              At BetGame, we're committed to promoting responsible gaming and providing a safe environment for our players.
+              At LuxmeBet, we're committed to promoting responsible gaming and providing a safe environment for our players.
             </p>
           </div>
 
@@ -145,7 +145,7 @@ const ResponsibleGaming = () => {
                 
                 <div className="bg-gray-900/50 p-6 rounded-lg border border-casino-gold/10">
                   <p className="font-semibold text-white mb-2">Contact our team:</p>
-                  <p>Email: responsible@betgame.com</p>
+                  <p>Email: responsible@LuxmeBet.Fun</p>
                   <p>Phone: 1-888-HELP-NOW</p>
                   <p>Live Chat: Available 24/7 on our platform</p>
                 </div>

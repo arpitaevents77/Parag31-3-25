@@ -20,7 +20,7 @@ const Terms = () => {
               
               <div className="space-y-6 text-gray-300">
                 <p>
-                  BetGame operates under License No. MGA/B2C/555/2025, issued by the Malta Gaming Authority.
+                  LuxmeBet operates under License No. MGA/B2C/555/2025, issued by the Malta Gaming Authority.
                   We comply with all applicable gaming regulations and maintain strict standards for fair play and responsible gaming.
                 </p>
                 
@@ -47,7 +47,7 @@ const Terms = () => {
                   <h3 className="text-xl font-semibold text-white mb-4">1. Account Terms</h3>
                   <div className="space-y-3">
                     <p>
-                      By creating an account on BetGame, you agree to provide accurate, complete, and current information.
+                      By creating an account on LuxmeBet, you agree to provide accurate, complete, and current information.
                       You are responsible for maintaining the security of your account and password.
                     </p>
                     <p>

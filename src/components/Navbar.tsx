@@ -13,7 +13,7 @@ const Navbar = () => {
         <div className="flex items-center justify-between h-16">
           <Link to="/" className="flex items-center space-x-2">
             <Dice className="w-8 h-8 text-casino-gold" />
-            <span className="text-2xl font-bold text-white">BetGame</span>
+            <span className="text-2xl font-bold text-white">LuxmeBet</span>
           </Link>
           
           <div className="hidden md:flex items-center space-x-6">

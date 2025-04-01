@@ -20,7 +20,7 @@ const Privacy = () => {
               
               <div className="space-y-6 text-gray-300">
                 <p>
-                  At BetGame, we take your privacy seriously. This policy outlines how we collect, use, and protect your personal information.
+                  At LuxmeBet, we take your privacy seriously. This policy outlines how we collect, use, and protect your personal information.
                 </p>
                 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -120,7 +120,7 @@ const Privacy = () => {
                 If you have any questions about our Privacy Policy, please contact our Data Protection Officer:
               </p>
               <div className="bg-gray-900/50 p-6 rounded-lg border border-casino-gold/10">
-                <p className="text-gray-300">Email: privacy@betgame.com</p>
+                <p className="text-gray-300">Email: privacy@LuxmeBet.fun</p>
                 <p className="text-gray-300">Phone: +1 (888) 123-4567</p>
                 <p className="text-gray-300">Address: 123 Gaming Street, Malta, MT 4567</p>
               </div>

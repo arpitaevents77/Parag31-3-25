@@ -19,7 +19,7 @@ const Home = () => {
             <Dice className="w-16 h-16 text-casino-gold" />
           </div>
           <h1 className="text-5xl md:text-7xl font-bold mb-6 text-white">
-            Welcome to <span className="text-casino-gold">BetGame</span>
+            Welcome to <span className="text-casino-gold">LuxmeBet</span>
           </h1>
           <p className="text-xl text-gray-200 mb-8 max-w-2xl mx-auto">
             Experience the thrill of betting with our secure and fair gaming platform. Join thousands of winners today!
@@ -46,7 +46,7 @@ const Home = () => {
       {/* Features Section */}
       <div className="py-20 bg-gradient-to-b from-casino-black to-casino-purple">
         <div className="container mx-auto px-4">
-          <h2 className="text-4xl font-bold text-center mb-16 text-casino-gold">Why Choose BetGame?</h2>
+          <h2 className="text-4xl font-bold text-center mb-16 text-casino-gold">Why Choose LuxmeBet?</h2>
           
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
             <div className="text-center p-6 rounded-lg bg-gradient-to-b from-gray-900 to-casino-purple border border-casino-gold/20">

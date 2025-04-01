@@ -10,7 +10,7 @@ const Footer = () => {
           <div>
             <div className="flex items-center space-x-2 mb-4">
               <Dice className="w-8 h-8 text-casino-gold" />
-              <h3 className="text-xl font-bold text-casino-gold">BetGame</h3>
+              <h3 className="text-xl font-bold text-casino-gold">LuxmeBet</h3>
             </div>
             <p className="text-gray-300">
               Your premier destination for online betting entertainment. Experience the thrill of the game!
@@ -56,7 +56,7 @@ const Footer = () => {
         </div>
         
         <div className="border-t border-gray-700 mt-8 pt-8 text-center text-gray-300">
-          <p>&copy; {new Date().getFullYear()} BetGame. All rights reserved.</p>
+          <p>&copy; {new Date().getFullYear()} LuxmeBet. All rights reserved.</p>
         </div>
       </div>
     </footer>

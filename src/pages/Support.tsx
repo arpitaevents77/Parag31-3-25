@@ -48,7 +48,7 @@ const Support = () => {
                   <Mail className="w-6 h-6 text-casino-gold mr-4 mt-1" />
                   <div>
                     <h3 className="text-lg font-semibold text-white mb-2">Email Support</h3>
-                    <p className="text-gray-300">support@betgame.com</p>
+                    <p className="text-gray-300">support@LuxmeBet.com</p>
                     <p className="text-sm text-gray-400 mt-1">Response within 24 hours</p>
                   </div>
                 </div>

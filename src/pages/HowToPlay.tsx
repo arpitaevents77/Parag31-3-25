@@ -22,7 +22,7 @@ const HowToPlay = () => {
               </h2>
               <div className="space-y-6 text-gray-300">
                 <p className="text-lg">
-                  Welcome to BetGame! Follow these simple steps to start your winning journey:
+                  Welcome to LuxmeBet! Follow these simple steps to start your winning journey:
                 </p>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div className="bg-gray-900/50 p-6 rounded-lg border border-casino-gold/10">
@@ -114,7 +114,7 @@ const HowToPlay = () => {
               </h2>
               <div className="bg-gray-900/50 p-6 rounded-lg border border-casino-gold/10">
                 <p className="text-gray-300 mb-6">
-                  At BetGame, we promote responsible gaming. Please follow these guidelines:
+                  At LuxmeBet, we promote responsible gaming. Please follow these guidelines:
                 </p>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-gray-300">
                   <ul className="list-disc list-inside space-y-3">
