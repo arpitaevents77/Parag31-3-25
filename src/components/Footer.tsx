@@ -42,7 +42,7 @@ const Footer = () => {
               <a href="#" className="text-gray-300 hover:text-casino-gold transition-colors">
                 <Facebook className="w-6 h-6" />
               </a>
-              <a href="#" className="text-gray-300 hover:text-casino-gold transition-colors">
+              <a href="https://x.com/Luxmebet" className="text-gray-300 hover:text-casino-gold transition-colors" target='_blank'>
                 <Twitter className="w-6 h-6" />
               </a>
               <a href="#" className="text-gray-300 hover:text-casino-gold transition-colors">
