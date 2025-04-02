@@ -144,6 +144,7 @@ const AddFunds = () => {
                   <p>• Minimum deposit: 5 MECOIN</p>
                   <p>• Funds will be credited automatically</p>
                   <p>• Transaction fees may apply</p>
+                  <p>• Buy Link for MeCoin https://www.mecoin.site/</p>
                 </div>
               </div>
             </div>
