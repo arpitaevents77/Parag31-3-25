@@ -11,7 +11,23 @@ const AddFunds = () => {
   const navigate = useNavigate();
   const [amount, setAmount] = useState('');
   const [loading, setLoading] = useState(false);
-  const MECOIN_WALLET = '0xBa3a191b330bc8A528b52eaA56Fe01F35BD92cDd';
+  const [selectedCrypto, setSelectedCrypto] = useState('MECOIN');
+  
+  const WALLET_ADDRESSES = {
+    MECOIN: '0xBa3a191b330bc8A528b52eaA56Fe01F35BD92cDd',
+    SOL: '57HjmwzCxtf81bgvS5Cr89yvzgtmEhnrxEo9HSVUEs4t',
+    BNB: '0xBa3a191b330bc8A528b52eaA56Fe01F35BD92cDd',
+    USDT: '0xBa3a191b330bc8A528b52eaA56Fe01F35BD92cDd',
+    ETH: '0xCa72211bF238E5d9510B1fBE32bbC99b2740a8E8'
+  };
+
+  const MIN_AMOUNTS = {
+    MECOIN: 5,
+    SOL: .1,
+    BNB: 0.01,
+    USDT: 5,
+    ETH: 0.01
+  };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -67,7 +83,7 @@ const AddFunds = () => {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               {/* Traditional Payment Form */}
               <div className="space-y-6">
-                <h2 className="text-xl font-semibold text-casino-gold mb-4">Credit Card Payment</h2>
+                <h2 className="text-xl font-semibold text-casino-gold mb-4">Credit Card Payment - Coming Soon</h2>
                 <form onSubmit={handleSubmit} className="space-y-6">
                   <div>
                     <label htmlFor="amount" className="block text-sm font-medium text-gray-200 mb-2">
@@ -124,27 +140,46 @@ const AddFunds = () => {
                 </form>
               </div>
 
-              {/* MECOIN Payment Section */}
+              {/* Cryptocurrency Payment Section */}
               <div className="space-y-6">
-                <h2 className="text-xl font-semibold text-casino-gold mb-4">Pay with MECOIN</h2>
-                <div className="bg-white p-6 rounded-lg text-center">
-                  <QRCodeSVG value={MECOIN_WALLET} size={200} className="mx-auto mb-4" />
+                <h2 className="text-xl font-semibold text-casino-gold mb-4">Pay with Cryptocurrency</h2>
+                
+                <div className="bg-gray-800/50 p-4 rounded-md mb-4">
+                  <label className="block text-sm font-medium text-gray-200 mb-2">
+                    Select Cryptocurrency
+                  </label>
+                  <select
+                    value={selectedCrypto}
+                    onChange={(e) => setSelectedCrypto(e.target.value)}
+                    className="w-full bg-gray-700 border border-gray-600 rounded-md text-white py-2 px-3"
+                  >
+                    <option value="MECOIN">MECOIN</option>
+                    <option value="SOL">Solana, Solrat (SOL)</option>
+                    <option value="BNB">Binance Coin (BNB)</option>
+                    <option value="USDT">Tether Binance (USDT)</option>
+                    <option value="ETH">Ethereum (ETH)</option>
+                  </select>
                 </div>
+
+                <div className="bg-white p-6 rounded-lg text-center">
+                  <QRCodeSVG value={WALLET_ADDRESSES[selectedCrypto]} size={200} className="mx-auto mb-4" />
+                </div>
+                
                 <div className="bg-gray-800/50 p-4 rounded-md">
                   <div className="flex items-center space-x-2 mb-3">
                     <Wallet className="h-5 w-5 text-casino-gold" />
-                    <h3 className="text-sm font-medium text-gray-200">MECOIN Wallet Address</h3>
+                    <h3 className="text-sm font-medium text-gray-200">Wallet Address</h3>
                   </div>
                   <p className="text-sm text-gray-300 break-all font-mono bg-gray-900 p-3 rounded">
-                    {MECOIN_WALLET}
+                    {WALLET_ADDRESSES[selectedCrypto]}
                   </p>
                 </div>
+
                 <div className="text-sm text-gray-300 space-y-2">
-                  <p>• Send MECOIN to this wallet address for instant funding</p>
-                  <p>• Minimum deposit: 5 MECOIN</p>
+                  <p>• Send {selectedCrypto} to this wallet address for instant funding</p>
+                  <p>• Minimum deposit: {MIN_AMOUNTS[selectedCrypto]} {selectedCrypto}</p>
                   <p>• Funds will be credited automatically</p>
                   <p>• Transaction fees may apply</p>
-                  <p>• Buy Link for MeCoin https://www.mecoin.site/</p>
                 </div>
               </div>
             </div>
@@ -158,7 +193,7 @@ const AddFunds = () => {
                 </div>
                 <div className="bg-gray-800/50 p-4 rounded-md">
                   <h4 className="font-medium text-casino-gold mb-2">Processing Time</h4>
-                  <p className="text-gray-300">Credit card deposits are instant. MECOIN transfers may take up to 10 minutes to confirm.</p>
+                  <p className="text-gray-300">Credit card deposits are instant. Crypto transfers may take up to 10 minutes to confirm.</p>
                 </div>
                 <div className="bg-gray-800/50 p-4 rounded-md">
                   <h4 className="font-medium text-casino-gold mb-2">Support</h4>
