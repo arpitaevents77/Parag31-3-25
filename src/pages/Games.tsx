@@ -15,7 +15,8 @@ interface Game {
   is_open: boolean;
   is_accepting_bets: boolean;
   game_date: string;
-  last_result?: number;
+  opening_winner_number: string | null;
+  closing_winner_number: string | null;
 }
 
 const Games = () => {
@@ -70,13 +71,16 @@ const Games = () => {
               <div className="p-6">
                 <div className="flex items-center justify-between mb-4">
                   <h2 className="text-2xl font-bold text-casino-gold">{game.name}</h2>
-                  <Trophy className={`w-6 h-6 ${game.last_result ? 'text-casino-gold' : 'text-gray-600'}`} />
+                  <Trophy className="w-6 h-6 text-casino-gold" />
                 </div>
                 
                 <div className="space-y-4">
                   <div className="flex items-center text-gray-300">
                     <Clock className="w-5 h-5 mr-2 text-casino-gold" />
                     <div>
+                      <p className="text-sm">
+                        Game Date: {format(new Date(game.game_date + 'T00:00:00'), 'PP')}
+                      </p>
                       <p className="text-sm">
                         Opens: {format(new Date(`2000-01-01T${game.open_time}`), 'h:mm a')}
                       </p>
@@ -88,9 +92,14 @@ const Games = () => {
 
                   <div className="flex items-center text-gray-300">
                     <DollarSign className="w-5 h-5 mr-2 text-casino-gold" />
-                    <p className="text-sm">
-                      Last Result: {game.last_result || 'No result yet'}
-                    </p>
+                    <div>
+                      <p className="text-sm">
+                        Opening Number: {game.opening_winner_number || 'Pending'}
+                      </p>
+                      <p className="text-sm">
+                        Closing Number: {game.closing_winner_number || 'Pending'}
+                      </p>
+                    </div>
                   </div>
 
                   <div className="flex items-center space-x-2">

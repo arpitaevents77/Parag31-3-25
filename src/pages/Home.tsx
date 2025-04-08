@@ -11,8 +11,9 @@ interface Game {
   close_time: string;
   is_active: boolean;
   is_accepting_bets: boolean;
-  last_result?: string;
   game_date: string;
+  opening_winner_number: string | null;
+  closing_winner_number: string | null;
 }
 
 const Home = () => {
@@ -44,25 +45,25 @@ const Home = () => {
   const networks = [
     {
       name: 'BNB Chain',
-      icon: 'https://cryptologos.cc/logos/bnb-bnb-logo.png',
+      icon: '/public/image/currencies/BNBlogo.png',
       description: 'Fast and low-cost transactions on the BNB Smart Chain',
       color: 'from-yellow-600 to-yellow-800'
     },
     {
       name: 'Ethereum',
-      icon: 'https://cryptologos.cc/logos/ethereum-eth-logo.png',
+      icon: '/public/image/currencies/Ethlogo.png',
       description: 'Secure and reliable transactions on the Ethereum network',
       color: 'from-blue-600 to-blue-800'
     },
     {
       name: 'Solana',
-      icon: 'https://cryptologos.cc/logos/solana-sol-logo.png',
+      icon: '/public/image/currencies/solanalogo.png',
       description: 'High-speed, low-fee transactions on Solana',
       color: 'from-purple-600 to-purple-800'
     },
     {
       name: 'Polygon',
-      icon: 'https://cryptologos.cc/logos/polygon-matic-logo.png',
+      icon: '/public/image/networks/Pol.png',
       description: 'Scalable and efficient transactions on Polygon',
       color: 'from-indigo-600 to-indigo-800'
     }
@@ -72,35 +73,35 @@ const Home = () => {
     {
       name: 'BNB',
       symbol: 'BNB',
-      icon: 'https://cryptologos.cc/logos/bnb-bnb-logo.png',
+      icon: '/public/image/currencies/BNBlogo.png',
       minAmount: '0.1 BNB',
       color: 'from-yellow-600 to-yellow-800'
     },
     {
       name: 'Ethereum',
       symbol: 'ETH',
-      icon: 'https://cryptologos.cc/logos/ethereum-eth-logo.png',
+      icon: '/public/image/currencies/Ethlogo.png',
       minAmount: '0.01 ETH',
       color: 'from-blue-600 to-blue-800'
     },
     {
       name: 'MECOIN',
       symbol: 'MECOIN',
-      icon: '/mecoin-logo.png',
+      icon: '/public/image/currencies/me.png',
       minAmount: '5 MECOIN',
       color: 'from-green-600 to-green-800'
     },
     {
       name: 'Solana',
       symbol: 'SOL',
-      icon: 'https://cryptologos.cc/logos/solana-sol-logo.png',
+      icon: '/public/image/currencies/solanalogo.png',
       minAmount: '10 SOL',
       color: 'from-purple-600 to-purple-800'
     },
     {
       name: 'USDT',
       symbol: 'USDT',
-      icon: 'https://cryptologos.cc/logos/tether-usdt-logo.png',
+      icon: '/public/image/currencies/usdtlogo.png',
       minAmount: '10 USDT',
       color: 'from-teal-600 to-teal-800'
     }
@@ -118,11 +119,8 @@ const Home = () => {
       >
         <div className="absolute inset-0 bg-gradient-to-r from-casino-purple/50 to-casino-red/50"></div>
         <div className="container mx-auto px-4 text-center relative z-10">
-          <div className="flex justify-center mb-6">
-            <Dice className="w-16 h-16 text-casino-gold" />
-          </div>
           <h1 className="text-5xl md:text-7xl font-bold mb-6 text-white">
-            Welcome to <span className="text-casino-gold">BetGame</span>
+            Welcome to <span className="text-casino-gold">LuxMeBet</span>
           </h1>
           <p className="text-xl text-gray-200 mb-8 max-w-2xl mx-auto">
             Experience the thrill of betting with our secure and fair gaming platform. Join thousands of winners today!
@@ -275,6 +273,9 @@ const Home = () => {
                         <Timer className="w-5 h-5 mr-2 text-casino-gold" />
                         <div>
                           <p className="text-sm">
+                            Game Date: {format(new Date(game.game_date), 'PP')}
+                          </p>
+                          <p className="text-sm">
                             Opens: {format(new Date(`2000-01-01T${game.open_time}`), 'h:mm a')}
                           </p>
                           <p className="text-sm">
@@ -283,12 +284,17 @@ const Home = () => {
                         </div>
                       </div>
 
-                      {game.last_result && (
-                        <div className="flex items-center text-gray-300">
-                          <Trophy className="w-5 h-5 mr-2 text-casino-gold" />
-                          <p className="text-sm">Last Result: {game.last_result}</p>
+                      <div className="flex items-center text-gray-300">
+                        <Trophy className="w-5 h-5 mr-2 text-casino-gold" />
+                        <div>
+                          <p className="text-sm">
+                            Opening Number: {game.opening_winner_number || 'Pending'}
+                          </p>
+                          <p className="text-sm">
+                            Closing Number: {game.closing_winner_number || 'Pending'}
+                          </p>
                         </div>
-                      )}
+                      </div>
 
                       <div className="mt-4">
                         <button className="w-full py-2 px-4 bg-casino-gold text-casino-black font-semibold rounded hover:bg-yellow-400 transition-colors">
