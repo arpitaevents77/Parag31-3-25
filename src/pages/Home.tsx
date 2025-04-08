@@ -272,9 +272,9 @@ const Home = () => {
                       <div className="flex items-center text-gray-300">
                         <Timer className="w-5 h-5 mr-2 text-casino-gold" />
                         <div>
-                          <p className="text-sm">
-                            Game Date: {format(new Date(game.game_date), 'PP')}
-                          </p>
+                        <p className="text-sm">
+                          Game Date: {format(new Date(game.game_date + 'T00:00:00'), 'PP')}
+                        </p>
                           <p className="text-sm">
                             Opens: {format(new Date(`2000-01-01T${game.open_time}`), 'h:mm a')}
                           </p>
