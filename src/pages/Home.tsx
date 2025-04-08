@@ -125,7 +125,7 @@ const Home = () => {
           <p className="text-xl text-gray-200 mb-8 max-w-2xl mx-auto">
             Experience the thrill of betting with our secure and fair gaming platform. Join thousands of winners today!
           </p>
-          <div className="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4">
+          <div className="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4"> 
             <Link
               to="/games"
               className="inline-flex items-center px-8 py-4 rounded-lg bg-casino-gold text-casino-black font-bold hover:bg-yellow-400 transition-colors"
