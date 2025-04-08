@@ -45,7 +45,7 @@ const Home = () => {
   const networks = [
     {
       name: 'BNB Chain',
-      icon: '/public/image/currencies/BNBlogo.png',
+      icon: '/image/networks/BNB.png',
       description: 'Fast and low-cost transactions on the BNB Smart Chain',
       color: 'from-yellow-600 to-yellow-800'
     },
