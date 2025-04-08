@@ -45,67 +45,68 @@ const Home = () => {
   const networks = [
     {
       name: 'BNB Chain',
-      icon: 'image/currencies/BNBLogo.png',
+      icon: '/image/currencies/BNBLogo.png', // ✅ Corrected
       description: 'Fast and low-cost transactions on the BNB Smart Chain',
       color: 'from-yellow-600 to-yellow-800'
     },
     {
       name: 'Ethereum',
-      icon: '/public/image/currencies/Ethlogo.png',
+      icon: '/image/currencies/Ethlogo.png', // ✅ Corrected
       description: 'Secure and reliable transactions on the Ethereum network',
       color: 'from-blue-600 to-blue-800'
     },
     {
       name: 'Solana',
-      icon: '/public/image/currencies/solanalogo.png',
+      icon: '/image/currencies/solanalogo.png', // ✅ Corrected
       description: 'High-speed, low-fee transactions on Solana',
       color: 'from-purple-600 to-purple-800'
     },
     {
       name: 'Polygon',
-      icon: '/public/image/networks/Pol.png',
+      icon: '/image/networks/Pol.png', // ✅ Corrected
       description: 'Scalable and efficient transactions on Polygon',
       color: 'from-indigo-600 to-indigo-800'
     }
   ];
-
+  
   const currencies = [
     {
       name: 'BNB',
       symbol: 'BNB',
-      icon: '/public/image/currencies/BNBlogo.png',
+      icon: '/image/currencies/BNBlogo.png', // ✅ Corrected
       minAmount: '0.01 BNB',
       color: 'from-yellow-600 to-yellow-800'
     },
     {
       name: 'Ethereum',
       symbol: 'ETH',
-      icon: '/public/image/currencies/Ethlogo.png',
+      icon: '/image/currencies/Ethlogo.png', // ✅ Corrected
       minAmount: '0.01 ETH',
       color: 'from-blue-600 to-blue-800'
     },
     {
       name: 'MECOIN',
       symbol: 'MECOIN',
-      icon: '/public/image/currencies/me.png',
+      icon: '/image/currencies/me.png', // ✅ Corrected
       minAmount: '5 MECOIN',
       color: 'from-green-600 to-green-800'
     },
     {
       name: 'Solana',
       symbol: 'SOL',
-      icon: '/public/image/currencies/solanalogo.png',
+      icon: '/image/currencies/solanalogo.png', // ✅ Corrected
       minAmount: '.010 SOL',
       color: 'from-purple-600 to-purple-800'
     },
     {
       name: 'USDT',
       symbol: 'USDT',
-      icon: '/public/image/currencies/usdtlogo.png',
+      icon: '/image/currencies/usdtlogo.png', // ✅ Corrected
       minAmount: '1 USDT',
       color: 'from-teal-600 to-teal-800'
     }
   ];
+  
 
   return (
     <div className="bg-casino-black text-white">
