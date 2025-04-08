@@ -74,7 +74,7 @@ const Home = () => {
       name: 'BNB',
       symbol: 'BNB',
       icon: '/public/image/currencies/BNBlogo.png',
-      minAmount: '0.1 BNB',
+      minAmount: '0.01 BNB',
       color: 'from-yellow-600 to-yellow-800'
     },
     {
@@ -95,14 +95,14 @@ const Home = () => {
       name: 'Solana',
       symbol: 'SOL',
       icon: '/public/image/currencies/solanalogo.png',
-      minAmount: '10 SOL',
+      minAmount: '.010 SOL',
       color: 'from-purple-600 to-purple-800'
     },
     {
       name: 'USDT',
       symbol: 'USDT',
       icon: '/public/image/currencies/usdtlogo.png',
-      minAmount: '10 USDT',
+      minAmount: '1 USDT',
       color: 'from-teal-600 to-teal-800'
     }
   ];
