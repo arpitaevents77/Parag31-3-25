@@ -45,7 +45,7 @@ const Home = () => {
   const networks = [
     {
       name: 'BNB Chain',
-      icon: '/image/currencies/BNBLogo.png', // ✅ Corrected
+      icon: '/image/currencies/BNBlogo.png', // ✅ Corrected
       description: 'Fast and low-cost transactions on the BNB Smart Chain',
       color: 'from-yellow-600 to-yellow-800'
     },
@@ -87,7 +87,7 @@ const Home = () => {
     {
       name: 'MECOIN',
       symbol: 'MECOIN',
-      icon: '/image/currencies/me.png', // ✅ Corrected
+      icon: '/image/currencies/Me.png', // ✅ Corrected
       minAmount: '5 MECOIN',
       color: 'from-green-600 to-green-800'
     },

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Facebook, Twitter, Instagram, Mail, Dice1 as Dice } from 'lucide-react';
+import { Facebook, Twitter, Instagram, Send, Dice1 as Dice } from 'lucide-react';
 
 const Footer = () => {
   return (
@@ -39,7 +39,7 @@ const Footer = () => {
           <div>
             <h4 className="text-lg font-semibold mb-4 text-casino-gold">Connect With Us</h4>
             <div className="flex space-x-4">
-              <a href="#" className="text-gray-300 hover:text-casino-gold transition-colors">
+              <a href="https://www.facebook.com/groups/1138876358277715" className="text-gray-300 hover:text-casino-gold transition-colors" target='_blank'>
                 <Facebook className="w-6 h-6" />
               </a>
               <a href="https://x.com/Luxmebet" className="text-gray-300 hover:text-casino-gold transition-colors" target='_blank'>
@@ -48,8 +48,8 @@ const Footer = () => {
               <a href="#" className="text-gray-300 hover:text-casino-gold transition-colors">
                 <Instagram className="w-6 h-6" />
               </a>
-              <a href="#" className="text-gray-300 hover:text-casino-gold transition-colors">
-                <Mail className="w-6 h-6" />
+              <a href="t.me/luxmebet" className="text-gray-300 hover:text-casino-gold transition-colors" target='_blank'>
+                <Send className="w-6 h-6" />
               </a>
             </div>
           </div>
