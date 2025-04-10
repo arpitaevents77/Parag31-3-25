@@ -48,7 +48,7 @@ const Footer = () => {
               <a href="#" className="text-gray-300 hover:text-casino-gold transition-colors">
                 <Instagram className="w-6 h-6" />
               </a>
-              <a href="t.me/luxmebet" className="text-gray-300 hover:text-casino-gold transition-colors" target='_blank'>
+              <a href="https://t.me/luxmebet" className="text-gray-300 hover:text-casino-gold transition-colors" target='_blank'>
                 <Send className="w-6 h-6" />
               </a>
             </div>
