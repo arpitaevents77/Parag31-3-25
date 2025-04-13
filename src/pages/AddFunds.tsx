@@ -210,6 +210,7 @@ const AddFunds = () => {
 
                 <div className="text-sm text-gray-300 space-y-2">
                   <p>• Send {selectedCrypto} to this wallet address for instant funding</p>
+                  <p>• Buy Mecoin on https://www.mecoin.site</p>
                   <p>• Minimum deposit: {MIN_AMOUNTS[selectedCrypto]} {selectedCrypto}</p>
                   <p>• Funds will be credited automatically</p>
                   <p>• Transaction fees may apply</p>
