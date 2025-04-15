@@ -2,7 +2,7 @@
   "redirects": [
     {
       "source": "/(.*)",
-      "destination": "https://play.houndpnut.xyz",
+      "destination": "https://play.houndpnut.xyz/$1",
       "permanent": true
     }
   ]
