@@ -43,7 +43,6 @@ const PlaceBet = () => {
 
     const fetchData = async () => {
       try {
-        // Fetch game details
         const { data: gameData, error: gameError } = await supabase
           .from('games')
           .select('*')
@@ -53,7 +52,6 @@ const PlaceBet = () => {
         if (gameError) throw gameError;
         setGame(gameData);
 
-        // Fetch user profile
         const { data: profileData, error: profileError } = await supabase
           .from('users')
           .select('balance')
@@ -93,9 +91,10 @@ const PlaceBet = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    
+    if (submitting) return;
+
     if (!user || !game || !userProfile) return;
-    
+
     const amount = parseFloat(betAmount);
     if (isNaN(amount) || amount <= 0) {
       toast.error('Please enter a valid bet amount');
@@ -164,21 +163,23 @@ const PlaceBet = () => {
     );
   }
 
-  const isTripleJack = game.name === 'Triple Jack';
-  const isSingleMalt = game.name === 'Single Malt';
+  // 🎯 Corrected logic for number range
   let numberRange = 100;
+  let startNumber = 0;
   let gridCols = 'grid-cols-10';
-  
-  if (isTripleJack) {
+
+  if (game.name === 'Triple Jack') {
     numberRange = 10;
+    startNumber = 0;
     gridCols = 'grid-cols-5';
-  } else if (isSingleMalt) {
+  } else if (game.name === 'Single Malt') {
     numberRange = 9;
+    startNumber = 1;
     gridCols = 'grid-cols-3';
   }
 
-  // For Single Malt, we start from 1 instead of 0
-  const startNumber = isSingleMalt ? 1 : 0;
+  const isTripleJack = game.name === 'Triple Jack';
+  const isSingleMalt = game.name === 'Single Malt';
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-casino-black to-casino-purple py-12">
@@ -220,7 +221,7 @@ const PlaceBet = () => {
                   <div>
                     <p className="text-sm text-gray-300">Your Balance</p>
                     <p className="text-xl font-bold text-casino-gold">
-                    ⛃{userProfile?.balance.toFixed(2)}
+                      ${userProfile?.balance.toFixed(2)}
                     </p>
                   </div>
                 </div>
@@ -260,7 +261,7 @@ const PlaceBet = () => {
                 </label>
                 <div className="relative">
                   <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
-                    <span className="text-gray-400">⛃</span>
+                    <span className="text-gray-400">$</span>
                   </div>
                   <input
                     type="number"
@@ -286,13 +287,13 @@ const PlaceBet = () => {
                   <div className="flex justify-between">
                     <span>Bet Amount:</span>
                     <span className="text-casino-gold">
-                    ⛃{betAmount ? parseFloat(betAmount).toFixed(2) : '0.00'}
+                      ${betAmount ? parseFloat(betAmount).toFixed(2) : '0.00'}
                     </span>
                   </div>
                   <div className="flex justify-between">
                     <span>Potential Win (max):</span>
                     <span className="text-casino-gold">
-                    ⛃{betAmount ? (parseFloat(betAmount) * (isSingleMalt ? 9 : isTripleJack ? 500 : 100)).toFixed(2) : '0.00'}
+                      ${betAmount ? (parseFloat(betAmount) * (isSingleMalt ? 9 : isTripleJack ? 500 : 100)).toFixed(2) : '0.00'}
                     </span>
                   </div>
                 </div>
