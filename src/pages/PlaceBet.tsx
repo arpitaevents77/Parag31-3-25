@@ -80,10 +80,12 @@ const PlaceBet = () => {
         setSelectedNumbers([...selectedNumbers, number].sort((a, b) => a - b));
       } else if (game?.name === 'Single Malt' && selectedNumbers.length < 1) {
         setSelectedNumbers([number]);
+      } else if (game?.name === 'Roll a Dice' && selectedNumbers.length < 1) {
+        setSelectedNumbers([number]);
       } else if (selectedNumbers.length < 5) {
         setSelectedNumbers([...selectedNumbers, number].sort((a, b) => a - b));
       } else {
-        const maxNumbers = game?.name === 'Triple Jack' ? 3 : game?.name === 'Single Malt' ? 1 : 5;
+        const maxNumbers = game?.name === 'Triple Jack' ? 3 : game?.name === 'Single Malt' ? 1 : game?.name === 'Roll a Dice' ? 1 : 5;
         toast.error(`You can only select ${maxNumbers} number${maxNumbers > 1 ? 's' : ''} for ${game?.name}`);
       }
     }
@@ -110,6 +112,8 @@ const PlaceBet = () => {
     if (game.name === 'Triple Jack') {
       requiredNumbers = 3;
     } else if (game.name === 'Single Malt') {
+      requiredNumbers = 1;
+    } else if (game.name === 'Roll a Dice') {
       requiredNumbers = 1;
     }
 
@@ -176,10 +180,15 @@ const PlaceBet = () => {
     numberRange = 9;
     startNumber = 1;
     gridCols = 'grid-cols-3';
+  } else if (game.name === 'Roll a Dice') {
+    numberRange = 6;
+    startNumber = 1;
+    gridCols = 'grid-cols-3';
   }
 
   const isTripleJack = game.name === 'Triple Jack';
   const isSingleMalt = game.name === 'Single Malt';
+  const isRollaDice = game.name === 'Roll a Dice';
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-casino-black to-casino-purple py-12">
@@ -194,6 +203,8 @@ const PlaceBet = () => {
                     ? 'Select exactly 1 number from 1-9 to play!'
                     : isTripleJack
                     ? 'Select exactly 3 numbers from 0-9 to play!'
+                    : isRollaDice
+                    ? 'Select exactly 1 numbers from 0-6 to play!'
                     : 'Select your lucky numbers and place your bet!'}
                 </p>
               </div>
@@ -235,6 +246,8 @@ const PlaceBet = () => {
                     ? 'Select Exactly 1 Number'
                     : isTripleJack
                     ? 'Select Exactly 3 Numbers'
+                    : isRollaDice
+                    ? 'Select Exactly 1 Numbers'
                     : 'Select Your Numbers (up to 5)'}
                 </label>
                 <div className={`grid ${gridCols} gap-4 md:gap-6`}>
@@ -293,7 +306,7 @@ const PlaceBet = () => {
                   <div className="flex justify-between">
                     <span>Potential Win (max):</span>
                     <span className="text-casino-gold">
-                      ${betAmount ? (parseFloat(betAmount) * (isSingleMalt ? 9 : isTripleJack ? 500 : 100)).toFixed(2) : '0.00'}
+                      ${betAmount ? (parseFloat(betAmount) * (isSingleMalt ? 9 :isRollaDice ? 5 : isTripleJack ? 500 : 100)).toFixed(2) : '0.00'}
                     </span>
                   </div>
                 </div>
