@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { supabase } from '../lib/supabase';
 import { Clock, DollarSign, Trophy, AlertCircle } from 'lucide-react';
 import { format } from 'date-fns';
+import Card3D from '../components/Card3D';
 
 interface Game {
   id: string;
@@ -62,81 +63,85 @@ const Games = () => {
           </p>
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {games.map((game) => (
-            <div
-              key={game.id}
-              className="bg-gradient-to-br from-gray-900 to-casino-purple rounded-lg shadow-xl overflow-hidden border border-casino-gold/20 transform hover:scale-105 transition-transform duration-300"
-            >
-              <div className="p-6">
-                <div className="flex items-center justify-between mb-4">
-                  <h2 className="text-2xl font-bold text-casino-gold">{game.name}</h2>
-                  <Trophy className="w-6 h-6 text-casino-gold" />
-                </div>
-                
-                <div className="space-y-4">
-                  <div className="flex items-center text-gray-300">
-                    <Clock className="w-5 h-5 mr-2 text-casino-gold" />
-                    <div>
-                      <p className="text-sm">
-                        Game Date: {format(new Date(game.game_date + 'T00:00:00'), 'PP')}
-                      </p>
-                      <p className="text-sm">
-                        Opens: {format(new Date(`2000-01-01T${game.open_time}`), 'h:mm a')}
-                      </p>
-                      <p className="text-sm">
-                        Closes: {format(new Date(`2000-01-01T${game.close_time}`), 'h:mm a')}
-                      </p>
+        
+        <Card3D className="bg-gradient-to-r from-gray-900 to-casino-purple p-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {games.map((game) => (
+              <div
+                key={game.id}
+                className="bg-gradient-to-br from-gray-900 to-casino-purple rounded-lg shadow-xl overflow-hidden border border-casino-gold/20 transform hover:scale-105 transition-transform duration-300"
+              >
+                <div className="p-6">
+                  <div className="flex items-center justify-between mb-4">
+                    <h2 className="text-2xl font-bold text-casino-gold">{game.name}</h2>
+                    <Trophy className="w-6 h-6 text-casino-gold" />
+                  </div>
+                  
+                  <div className="space-y-4">
+                    <div className="flex items-center text-gray-300">
+                      <Clock className="w-5 h-5 mr-2 text-casino-gold" />
+                      <div>
+                        <p className="text-sm">
+                          Game Date: {format(new Date(game.game_date + 'T00:00:00'), 'PP')}
+                        </p>
+                        <p className="text-sm">
+                          Opens: {format(new Date(`2000-01-01T${game.open_time}`), 'h:mm a')}
+                        </p>
+                        <p className="text-sm">
+                          Closes: {format(new Date(`2000-01-01T${game.close_time}`), 'h:mm a')}
+                        </p>
+                      </div>
+                    </div>
+
+                    <div className="flex items-center text-gray-300">
+                      <DollarSign className="w-5 h-5 mr-2 text-casino-gold" />
+                      <div>
+                        <p className="text-sm">
+                          Opening Number: {game.opening_winner_number || 'Pending'}
+                        </p>
+                        <p className="text-sm">
+                          Closing Number: {game.closing_winner_number || 'Pending'}
+                        </p>
+                      </div>
+                    </div>
+
+                    <div className="flex items-center space-x-2">
+                      <span className={`px-3 py-1 rounded-full text-xs font-semibold ${
+                        game.is_open 
+                          ? 'bg-casino-green/20 text-green-400' 
+                          : 'bg-casino-red/20 text-red-400'
+                      }`}>
+                        {game.is_open ? 'Open' : 'Closed'}
+                      </span>
+                      <span className={`px-3 py-1 rounded-full text-xs font-semibold ${
+                        game.is_accepting_bets 
+                          ? 'bg-casino-green/20 text-green-400' 
+                          : 'bg-yellow-600/20 text-yellow-400'
+                      }`}>
+                        {game.is_accepting_bets ? 'Accepting Bets' : 'Not Accepting Bets'}
+                      </span>
                     </div>
                   </div>
 
-                  <div className="flex items-center text-gray-300">
-                    <DollarSign className="w-5 h-5 mr-2 text-casino-gold" />
-                    <div>
-                      <p className="text-sm">
-                        Opening Number: {game.opening_winner_number || 'Pending'}
-                      </p>
-                      <p className="text-sm">
-                        Closing Number: {game.closing_winner_number || 'Pending'}
-                      </p>
-                    </div>
+                  <div className="mt-6">
+                    <Link
+                      to={`/place-bet/${game.id}`}
+                      className={`w-full inline-flex justify-center items-center px-4 py-3 rounded-md text-sm font-semibold transition-colors ${
+                        game.is_accepting_bets
+                          ? 'bg-casino-gold text-casino-black hover:bg-yellow-400'
+                          : 'bg-gray-700 text-gray-400 cursor-not-allowed'
+                      }`}
+                      onClick={(e) => !game.is_accepting_bets && e.preventDefault()}
+                    >
+                      {game.is_accepting_bets ? 'Place Bet Now' : 'Betting Closed'}
+                    </Link>
                   </div>
-
-                  <div className="flex items-center space-x-2">
-                    <span className={`px-3 py-1 rounded-full text-xs font-semibold ${
-                      game.is_open 
-                        ? 'bg-casino-green/20 text-green-400' 
-                        : 'bg-casino-red/20 text-red-400'
-                    }`}>
-                      {game.is_open ? 'Open' : 'Closed'}
-                    </span>
-                    <span className={`px-3 py-1 rounded-full text-xs font-semibold ${
-                      game.is_accepting_bets 
-                        ? 'bg-casino-green/20 text-green-400' 
-                        : 'bg-yellow-600/20 text-yellow-400'
-                    }`}>
-                      {game.is_accepting_bets ? 'Accepting Bets' : 'Not Accepting Bets'}
-                    </span>
-                  </div>
-                </div>
-
-                <div className="mt-6">
-                  <Link
-                    to={`/place-bet/${game.id}`}
-                    className={`w-full inline-flex justify-center items-center px-4 py-3 rounded-md text-sm font-semibold transition-colors ${
-                      game.is_accepting_bets
-                        ? 'bg-casino-gold text-casino-black hover:bg-yellow-400'
-                        : 'bg-gray-700 text-gray-400 cursor-not-allowed'
-                    }`}
-                    onClick={(e) => !game.is_accepting_bets && e.preventDefault()}
-                  >
-                    {game.is_accepting_bets ? 'Place Bet Now' : 'Betting Closed'}
-                  </Link>
                 </div>
               </div>
-            </div>
-          ))}
-        </div>
+            ))}
+          </div>
+        </Card3D>
+        
 
         {games.length === 0 && (
           <div className="text-center py-12 bg-gray-900/50 rounded-lg border border-casino-gold/20">

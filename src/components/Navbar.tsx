@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { useAuth } from '../contexts/AuthContext';
 import { Wallet, LogOut, LogIn, UserPlus, Menu, Dice1 as Dice } from 'lucide-react';
+import AnimatedNumber from '../AnimatedNumber';
 
 const Navbar = () => {
   const { user, signOut } = useAuth();
@@ -12,7 +13,7 @@ const Navbar = () => {
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
           <Link to="/" className="flex items-center space-x-2">
-            <Dice className="w-8 h-8 text-casino-gold" />
+            <Dice className="w-8 h-8 text-casino-gold mx-auto mb-6 animate-spin-slow" />
             <span className="text-2xl font-bold text-white">LuxmeBet</span>
           </Link>
           

@@ -1,141 +1,164 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { DollarSign, Target, Award, AlertCircle, Dice1 as Dice, ChevronRight } from 'lucide-react';
+import { DollarSign, Target, Award, AlertCircle, Dice1 as Dice, ChevronRight, Coins, Trophy, Shield } from 'lucide-react';
+import Card3D from '../components/Card3D';
+import GradientBorder from '../components/GradientBorder';
+import AnimatedNumber from '../components/AnimatedNumber';
 
 const HowToPlay = () => {
   return (
     <div className="min-h-screen bg-gradient-to-b from-casino-black to-casino-purple py-12">
       <div className="container mx-auto px-4">
         <div className="max-w-4xl mx-auto">
-          <div className="text-center mb-12">
-            <Dice className="w-16 h-16 text-casino-gold mx-auto mb-6" />
-            <h1 className="text-4xl font-bold text-casino-gold mb-4">How to Play</h1>
-            <p className="text-gray-300">Master the game and increase your chances of winning big!</p>
+          {/* Hero Section */}
+          <div className="text-center mb-12 animate-float">
+            <Dice className="w-16 h-16 text-casino-gold mx-auto mb-6 animate-spin-slow" />
+            <h1 className="text-5xl font-bold text-casino-gold mb-4 neon-text">How to Play</h1>
+            <p className="text-xl text-gray-300">Master the game and increase your chances of winning big!</p>
           </div>
 
           <div className="space-y-8">
             {/* Getting Started Section */}
-            <section className="bg-gradient-to-r from-gray-900 to-casino-purple rounded-lg shadow-xl p-8 border border-casino-gold/20">
-              <h2 className="text-2xl font-bold mb-6 flex items-center text-casino-gold">
-                <Target className="w-8 h-8 mr-3" />
-                Getting Started
-              </h2>
+            <Card3D className="bg-gradient-to-r from-gray-900 to-casino-purple p-8">
+              <div className="flex items-center mb-6">
+                <Target className="w-8 h-8 text-casino-gold mr-3 animate-pulse-slow" />
+                <h2 className="text-2xl font-bold text-casino-gold">Getting Started</h2>
+              </div>
+              
               <div className="space-y-6 text-gray-300">
                 <p className="text-lg">
-                  Welcome to LuxmeBet! Follow these simple steps to start your winning journey:
+                  Welcome to BetGame! Follow these simple steps to start your winning journey:
                 </p>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <div className="bg-gray-900/50 p-6 rounded-lg border border-casino-gold/10">
-                    <h3 className="text-xl font-semibold mb-4 text-white">Step 1: Create Account</h3>
+                  <GradientBorder className="p-6">
+                    <h3 className="text-xl font-semibold mb-4 text-white flex items-center">
+                      <Shield className="w-5 h-5 text-casino-gold mr-2" />
+                      Step 1: Create Account
+                    </h3>
                     <ul className="list-disc list-inside space-y-2">
-                      <li>Register with your email</li>
-                      <li>Set up your secure password</li>
-                      <li>Add your wallet address</li>
-                      <li>Verify your account</li>
+                      <li className="animate-shine">Register with your email</li>
+                      <li className="animate-shine">Set up your secure password</li>
+                      <li className="animate-shine">Add your wallet address</li>
+                      <li className="animate-shine">Verify your account</li>
                     </ul>
-                  </div>
-                  <div className="bg-gray-900/50 p-6 rounded-lg border border-casino-gold/10">
-                    <h3 className="text-xl font-semibold mb-4 text-white">Step 2: Add Funds</h3>
+                  </GradientBorder>
+
+                  <GradientBorder className="p-6">
+                    <h3 className="text-xl font-semibold mb-4 text-white flex items-center">
+                      <Coins className="w-5 h-5 text-casino-gold mr-2" />
+                      Step 2: Add Funds
+                    </h3>
                     <ul className="list-disc list-inside space-y-2">
-                      <li>Choose your payment method</li>
-                      <li>Add funds to your wallet</li>
-                      <li>Get ready to play!</li>
+                      <li className="animate-shine">Choose your payment method</li>
+                      <li className="animate-shine">Add funds to your wallet</li>
+                      <li className="animate-shine">Get ready to play!</li>
                     </ul>
-                  </div>
+                  </GradientBorder>
                 </div>
               </div>
-            </section>
+            </Card3D>
 
             {/* Game Rules Section */}
-            <section className="bg-gradient-to-r from-gray-900 to-casino-purple rounded-lg shadow-xl p-8 border border-casino-gold/20">
-              <h2 className="text-2xl font-bold mb-6 flex items-center text-casino-gold">
-                <Award className="w-8 h-8 mr-3" />
-                Game Rules & Winning
-              </h2>
+            <Card3D className="bg-gradient-to-r from-gray-900 to-casino-purple p-8">
+              <div className="flex items-center mb-6">
+                <Trophy className="w-8 h-8 text-casino-gold mr-3 animate-pulse-slow" />
+                <h2 className="text-2xl font-bold text-casino-gold">Game Rules & Winning</h2>
+              </div>
+              
               <div className="space-y-6">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <div className="bg-gray-900/50 p-6 rounded-lg border border-casino-gold/10">
+                  <GradientBorder className="p-6">
                     <h3 className="text-xl font-semibold mb-4 text-white">Basic Rules</h3>
                     <ul className="list-disc list-inside space-y-3 text-gray-300">
-                      <li>Select up to 5 numbers per bet</li>
-                      <li>Minimum bet amount: ⛃1</li>
-                      <li>Two daily draws: Opening & Closing</li>
-                      <li>Results announced promptly</li>
-                      <li>Instant winning notifications</li>
+                      <li className="animate-shine">Select up to 5 numbers per bet</li>
+                      <li className="animate-shine">Minimum bet amount: $1</li>
+                      <li className="animate-shine">Two daily draws: Opening & Closing</li>
+                      <li className="animate-shine">Results announced promptly</li>
+                      <li className="animate-shine">Instant winning notifications</li>
                     </ul>
-                  </div>
+                  </GradientBorder>
 
-                  <div className="bg-gray-900/50 p-6 rounded-lg border border-casino-gold/10">
+                  <GradientBorder className="p-6">
                     <h3 className="text-xl font-semibold mb-4 text-white">Winning Combinations</h3>
-                    <ul className="list-disc list-inside space-y-3 text-gray-300">
-                      <li>Match all numbers: <span className="text-casino-gold">Win 100x</span></li>
-                      <li>Match 4 numbers: <span className="text-casino-gold">Win 50x</span></li>
-                      <li>Match 3 numbers: <span className="text-casino-gold">Win 2x</span></li>
-                    </ul>
+                    <div className="space-y-3">
+                      <div className="flex items-center justify-between p-2 bg-casino-purple/30 rounded">
+                        <span className="text-gray-300">Match all numbers:</span>
+                        <AnimatedNumber value={100} className="text-casino-gold font-bold" />x
+                      </div>
+                      <div className="flex items-center justify-between p-2 bg-casino-purple/30 rounded">
+                        <span className="text-gray-300">Match 4 numbers:</span>
+                        <AnimatedNumber value={10} className="text-casino-gold font-bold" />x
+                      </div>
+                      <div className="flex items-center justify-between p-2 bg-casino-purple/30 rounded">
+                        <span className="text-gray-300">Match 3 numbers:</span>
+                        <AnimatedNumber value={5} className="text-casino-gold font-bold" />x
+                      </div>
+                      
+                    </div>
+                  </GradientBorder>
+                </div>
+              </div>
+            </Card3D>
+
+            {/* Game Types Section */}
+            <Card3D className="bg-gradient-to-r from-gray-900 to-casino-purple p-8">
+              <div className="flex items-center mb-6">
+                <Dice className="w-8 h-8 text-casino-gold mr-3 animate-pulse-slow" />
+                <h2 className="text-2xl font-bold text-casino-gold">Game Types</h2>
+              </div>
+              
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <GradientBorder className="p-6 hover:shadow-neon transition-all duration-300">
+                  <h3 className="text-xl font-semibold mb-4 text-white text-center">Classic Game</h3>
+                  <div className="text-center mb-4">
+                    <span className="text-4xl text-casino-gold">5</span>
+                    <p className="text-sm text-gray-300">Numbers to Pick</p>
                   </div>
-                </div>
-              </div>
-            </section>
+                  <p className="text-gray-300 text-sm text-center">
+                    Choose any 5 numbers and win big with multiple combinations!
+                  </p>
+                </GradientBorder>
 
-            {/* Payment Information */}
-            <section className="bg-gradient-to-r from-gray-900 to-casino-purple rounded-lg shadow-xl p-8 border border-casino-gold/20">
-              <h2 className="text-2xl font-bold mb-6 flex items-center text-casino-gold">
-                <DollarSign className="w-8 h-8 mr-3" />
-                Payment & Withdrawals
-              </h2>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div className="bg-gray-900/50 p-6 rounded-lg border border-casino-gold/10">
-                  <h3 className="text-xl font-semibold mb-4 text-white">Deposit Methods</h3>
-                  <ul className="list-disc list-inside space-y-3 text-gray-300">
-                    <li>Credit/Debit Cards</li>
-                    <li>Bank Transfer</li>
-                    <li>Cryptocurrency (MECOIN)</li>
-                    <li>E-Wallets</li>
-                  </ul>
-                </div>
+                <GradientBorder className="p-6 hover:shadow-neon transition-all duration-300">
+                  <h3 className="text-xl font-semibold mb-4 text-white text-center">Triple Jack</h3>
+                  <div className="text-center mb-4">
+                    <span className="text-4xl text-casino-gold">3</span>
+                    <p className="text-sm text-gray-300">Numbers to Pick</p>
+                  </div>
+                  <p className="text-gray-300 text-sm text-center">
+                    Select 3 numbers from 0-9 for triple the excitement!
+                  </p>
+                </GradientBorder>
 
-                <div className="bg-gray-900/50 p-6 rounded-lg border border-casino-gold/10">
-                  <h3 className="text-xl font-semibold mb-4 text-white">Withdrawal Info</h3>
-                  <ul className="list-disc list-inside space-y-3 text-gray-300">
-                    <li>24-hour processing time</li>
-                    <li>Multiple withdrawal options</li>
-                    <li>Minimum withdrawal: $10</li>
-                    <li>Secure transactions</li>
-                  </ul>
-                </div>
-              </div>
-            </section>
+                <GradientBorder className="p-6 hover:shadow-neon transition-all duration-300">
+                  <h3 className="text-xl font-semibold mb-4 text-white text-center">Single Malt</h3>
+                  <div className="text-center mb-4">
+                    <span className="text-4xl text-casino-gold">1</span>
+                    <p className="text-sm text-gray-300">Number to Pick</p>
+                  </div>
+                  <p className="text-gray-300 text-sm text-center">
+                    Pick 1 number from 1-9 for quick and exciting wins!
+                  </p>
+                </GradientBorder>
 
-            {/* Responsible Gaming */}
-            <section className="bg-gradient-to-r from-gray-900 to-casino-purple rounded-lg shadow-xl p-8 border border-casino-gold/20">
-              <h2 className="text-2xl font-bold mb-6 flex items-center text-casino-gold">
-                <AlertCircle className="w-8 h-8 mr-3" />
-                Responsible Gaming
-              </h2>
-              <div className="bg-gray-900/50 p-6 rounded-lg border border-casino-gold/10">
-                <p className="text-gray-300 mb-6">
-                  At LuxmeBet, we promote responsible gaming. Please follow these guidelines:
-                </p>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-gray-300">
-                  <ul className="list-disc list-inside space-y-3">
-                    <li>Set personal betting limits</li>
-                    <li>Never chase losses</li>
-                    <li>Gamble only what you can afford</li>
-                  </ul>
-                  <ul className="list-disc list-inside space-y-3">
-                    <li>Take regular breaks</li>
-                    <li>Keep track of time spent</li>
-                    <li>Seek help if needed</li>
-                  </ul>
-                </div>
+                <GradientBorder className="p-6 hover:shadow-neon transition-all duration-300">
+                  <h3 className="text-xl font-semibold mb-4 text-white text-center">Roll a Dice</h3>
+                  <div className="text-center mb-4">
+                    <span className="text-4xl text-casino-gold">1</span>
+                    <p className="text-sm text-gray-300">Number to Pick</p>
+                  </div>
+                  <p className="text-gray-300 text-sm text-center">
+                    Pick 1 number from 1-6 for quick and exciting wins!
+                  </p>
+                </GradientBorder>
               </div>
-            </section>
+            </Card3D>
 
             {/* Call to Action */}
             <div className="text-center pt-8">
               <Link
                 to="/games"
-                className="inline-flex items-center px-8 py-4 border-2 border-casino-gold text-casino-gold hover:bg-casino-gold hover:text-casino-black font-bold rounded-lg transition-colors duration-300"
+                className="inline-flex items-center px-8 py-4 border-2 border-casino-gold text-casino-gold hover:bg-casino-gold hover:text-casino-black font-bold rounded-lg transition-all duration-300 hover:shadow-neon-strong animate-pulse-slow"
               >
                 Start Playing Now
                 <ChevronRight className="w-5 h-5 ml-2" />
