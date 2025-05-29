@@ -24,58 +24,78 @@
   overflow: hidden;
 }
 
-.bg-pattern::before {
+/* Card Outlines */
+.bg-pattern::before,
+.bg-pattern::after {
   content: '';
   position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: 
-    linear-gradient(45deg, transparent 48%, rgba(255, 215, 0, 0.1) 50%, transparent 52%) 0 0 / 100px 100px,
-    linear-gradient(-45deg, transparent 48%, rgba(255, 215, 0, 0.1) 50%, transparent 52%) 0 0 / 100px 100px;
-  animation: cardPattern 8s linear infinite;
+  inset: 0;
   pointer-events: none;
 }
 
+/* Card Grid Pattern */
+.bg-pattern::before {
+  background: 
+    linear-gradient(45deg, transparent 48%, rgba(255, 255, 255, 0.03) 50%, transparent 52%) 0 0 / 300px 300px,
+    linear-gradient(-45deg, transparent 48%, rgba(255, 255, 255, 0.03) 50%, transparent 52%) 0 0 / 300px 300px;
+  animation: cardPattern 20s linear infinite;
+}
+
+/* Glowing Card Outlines */
+.bg-pattern::after {
+  background: 
+    linear-gradient(90deg, transparent 47%, rgba(0, 246, 255, 0.05) 50%, transparent 53%) 0 0 / 400px 100%,
+    linear-gradient(0deg, transparent 47%, rgba(0, 246, 255, 0.05) 50%, transparent 53%) 0 0 / 100% 400px;
+  filter: blur(2px);
+  animation: cardOutline 15s linear infinite;
+}
+
+/* Card Pattern Animation */
 @keyframes cardPattern {
   0% {
     background-position: 0 0, 0 0;
   }
   100% {
-    background-position: 100px 100px, 100px 100px;
+    background-position: 300px 300px, 300px 300px;
   }
 }
 
-/* Playing Card Outlines */
-.bg-pattern::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: 
-    linear-gradient(90deg, transparent 47%, rgba(255, 215, 0, 0.05) 50%, transparent 53%) 0 0 / 200px 100%,
-    linear-gradient(0deg, transparent 47%, rgba(255, 215, 0, 0.05) 50%, transparent 53%) 0 0 / 100% 200px;
-  animation: cardOutline 4s linear infinite;
-  pointer-events: none;
-}
-
+/* Card Outline Animation */
 @keyframes cardOutline {
   0% {
     background-position: 0 0;
   }
   100% {
-    background-position: 200px 200px;
+    background-position: 400px 400px;
+  }
+}
+
+/* Playing Card Spotlights */
+.bg-pattern::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: 
+    radial-gradient(600px circle at 25% 50%, rgba(0, 246, 255, 0.03) 0%, transparent 50%),
+    radial-gradient(600px circle at 75% 50%, rgba(0, 246, 255, 0.03) 0%, transparent 50%),
+    radial-gradient(600px circle at 50% 50%, rgba(255, 215, 0, 0.02) 0%, transparent 60%);
+  animation: spotlightPulse 8s ease-in-out infinite;
+}
+
+@keyframes spotlightPulse {
+  0%, 100% {
+    opacity: 0.5;
+  }
+  50% {
+    opacity: 1;
   }
 }
 
 .bg-grid {
   background-size: 50px 50px;
   background-image: 
-    linear-gradient(to right, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+    linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
 }
 
 .glass-card {
