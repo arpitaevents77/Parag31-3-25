@@ -20,6 +20,55 @@
     radial-gradient(at 0% 0%, rgba(84, 104, 255, 0.1) 0, transparent 50%),
     radial-gradient(at 100% 0%, rgba(0, 255, 194, 0.1) 0, transparent 50%),
     radial-gradient(at 50% 100%, rgba(255, 174, 0, 0.1) 0, transparent 50%);
+  position: relative;
+  overflow: hidden;
+}
+
+.bg-pattern::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    linear-gradient(45deg, transparent 48%, rgba(255, 215, 0, 0.1) 50%, transparent 52%) 0 0 / 100px 100px,
+    linear-gradient(-45deg, transparent 48%, rgba(255, 215, 0, 0.1) 50%, transparent 52%) 0 0 / 100px 100px;
+  animation: cardPattern 8s linear infinite;
+  pointer-events: none;
+}
+
+@keyframes cardPattern {
+  0% {
+    background-position: 0 0, 0 0;
+  }
+  100% {
+    background-position: 100px 100px, 100px 100px;
+  }
+}
+
+/* Playing Card Outlines */
+.bg-pattern::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    linear-gradient(90deg, transparent 47%, rgba(255, 215, 0, 0.05) 50%, transparent 53%) 0 0 / 200px 100%,
+    linear-gradient(0deg, transparent 47%, rgba(255, 215, 0, 0.05) 50%, transparent 53%) 0 0 / 100% 200px;
+  animation: cardOutline 4s linear infinite;
+  pointer-events: none;
+}
+
+@keyframes cardOutline {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 200px 200px;
+  }
 }
 
 .bg-grid {
